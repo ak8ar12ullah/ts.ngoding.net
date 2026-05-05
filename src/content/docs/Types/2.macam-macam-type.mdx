@@ -1,0 +1,124 @@
+---
+title: Introduction To TypesScript.
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Penjelasan kenapa ada TypeScript.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="16 April 2026" author="akbar" client:load />
+
+## Permulaan
+
+Typescript itu seperti superset of javascript. maksudnya disini adalah setiap data pasti memiliki tipe data, yang mana tipe data ini digunakan untuk memberikan tanda data yang kita masukkan berbentuk apa.
+
+## Kenapa ada tipe dataj
+
+tipe data ini adalah bagaimana data disimpan dan memiliki data ukuran berapa data disimpan.
+
+contohnya di data int rata2 di berbagai bahasa pemrograman memiliki 32 bit data yaitu sekitar 4 bytes data atau sekitar 0.004 KB data untuk 1 nilai yang dimasukkan di 32bit int data.
+
+berbeda dengann string yang penyimpanan datanya disesuaikan dengan berapa banyak karakter yang dimasukkan ke variable, contohnya di string yang rata2 menggunakan utf-8 maka setiap karakternya menggunakan
+8 bit data atau setara dengan 1 byte data yang mana setara dengan 0.001 KB data.
+
+begitu juga dengan biner yang mana ini adalah penyimpanan terkecil dalam ram yaitu cuma dengan 1 bit data (true dan false).
+
+## Kekurangan Javascript
+
+di Javascript perbedaan tipe data ini tidak di berikan secara manual.
+
+Jadi javascript menebak database apa yang kita gunakan dan penentuannya adalah ketika kita memberikan nilai padanya.
+
+Hal ini menjadikan javascript sangat dynamic terhadap tipe data. tapi hal ini ada kekurangan yang sangat tidak diinginkan orang-orang.
+
+Kekurangannya adalah antara lain.
+
+<Steps>
+
+1. Konflik antara tipe data sehingga Javascript memilih sendiri tipe datanya.
+
+   Di javascript kalau di variable kita adalah angka dan kita tambahkan string dengan isi angka maka hasilnya akan berbentuk string.
+
+   Contohnya :
+
+   ```javascript
+   // terkadang di suatu fungsi yang jauh secara tidak senagja
+   // memberikan string padahal kita menginginkan int.
+   let outputDariUserAtauFungsiLain = "5";
+
+   const hasil = 5 + inputDariUserAtauFungsiLain;
+
+   console.log(hasil);
+   ```
+
+   Menurut kalian hasilnya akan apa? 10 atau 55?
+
+   Jawabannya adalah 55 karena penambahan diatas menggunakan penambahan string
+   sehingga hasilnya seperti menambahkan karakter di kanan.
+
+   Hal ini berlaku kebalikannya juga, seperti string yang ditambah tipe data INT.
+
+   Hal ini terkadang membuat code kita rusak atau memiliki hasil yang tidak sesuai yang diharapkan.
+
+2. Typo object atau Kebingungan terhadap isi object.
+
+   Masalah ini mungkin untuk sebagian Programmer dapat mengatasinya. Tapi jika dari bahasa pemrograman lain terutama bahasa pemrograman Object Oriented Programming akan kebingungan.
+
+   Contohnya ketika orang lain membuat class, kita sebagai orang yang bukan menulis class nya akan kebingungan dengan isi object/classnya.
+
+   Ketika kita menginstal library dengan versi lama method dari object tersebut ada tapi ketika kita menggunakan versi baru yang nama methodnya dirubah maka code kita yang menggunakan method tersebut akan mengembalikan undefined.
+
+   Yang mana Class harus bersifat Abstraksi yang artinya orang di luar class tidak perlu tahu isi dari class tersebut.
+
+   Contoh lainnya adalah kita typo dengan object seperti syntax berikut.
+
+   ```javascript
+   const newUser = {
+     nama: "akbar",
+   };
+
+   console.log(newUser.nama);
+   ```
+
+   Hasil diatas tidak akan memunculkan error karena console log hanya akan mengembalikan undefined.
+
+3. Pengembalian / return yang tidak diketahui.
+
+   Ketika kita membuat code kita memberikan fungsi yang mana code kita mengharapkan fungsi tersebut mengembalikan angka.
+
+   Tapi fungsi yang kita kerjakan mungkin tidak terlalu kaku seperti mengharuskan mengembalikan angka yang mana menjadi sifat javascript
+   sehingga ketika fungsi mengembalikan NaN atau not a number maka code kita akan error di waktu yang tidak kita inginkan.
+
+4. Kita tidak tahu tipe data parameter dari sebuah fungsi atau library.
+
+   Ketika kita menginstal library atau code dari orang lain, kita tidak tahu bagaimana menggunakannya apakah inputnya harus object, array, string, angka, dan lain sebagainya.
+
+5. Sulitnya Mengubah Kode Lama.
+
+   Kita akan kesulitan dalam mengubah kode apa lagi developer dari bahasa lain yang mana kita harus mengerti tipedata yang dibutuhkan masing masing variable maupun parameter secara manual.
+
+   Yang meningkatkan kemungkinan code akan hancur jika dirubah.
+
+</Steps>
+
+## Solusi
+
+Solusi dari masalah diatas di atasi oleh Bahasa Typescript.
+
+Meskipun Typescript sendiri mengorbankan kelebihan dari Javascript yaitu bahasa javascript adalah bahasa interpreter.
+
+Menjadikan Typescript harus di compile terlebih dahulu menjadi bahasa interpreter lain (Javascript) tanpa meningkatkan kecepatan program.
+
+Hal ini membuat waktu development menjadi lebih lama.
+
+Typescript adalah Javascript dengan TYPE.
+
+mengorbankan waktu development yang lebih lama ( build, boilerplate dengan type, dll ) demi kemudahan dalam development dan debuging.
+
+Kecepatan Program dari Typescript dan Javascript sama saja.
