@@ -1,0 +1,88 @@
+---
+// src/components/CustomBreadcrumbs.astro
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+// Ambil props dari Starlight
+const { title = "null", kategori = "null" } = Astro.props;
+
+// Kita definisikan struktur breadcrumbs secara manual agar lebih rapi
+const customCrumbs = [
+  { text: "home", href: "https://ngoding.net" },
+  { text: "Typescript", href: "/" }, 
+  { text: kategori, href: `/${kategori}` }, 
+  { text: title, href: "#" }, 
+  
+];
+---
+
+<div class="breadcrumb-container">
+  <Breadcrumbs crumbs={customCrumbs}>
+    <span slot="separator" class="sep">{">"}</span>
+  </Breadcrumbs>
+</div>
+
+<!-- <style>
+  .breadcrumb-container {
+    --bc-sep-color: var(--sl-color-gray-4);
+    --bc-link-color: var(--sl-color-accent);
+    --bc-active-color: var(--sl-color-white);
+    margin-top: -10px;
+    margin-bottom: 2rem;
+    font-size: 0.85rem;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+  }
+
+  .sep { 
+    padding: 0 8px; 
+    color: var(--bc-sep-color);
+    font-weight: normal;
+  }
+
+  /* Reset tampilan list bawaan library */
+  :global(.breadcrumb-list) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  :global(.breadcrumb-item) {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Style untuk link (Home & Restart) */
+  :global(.breadcrumb-item a) {
+    color: var(--bc-link-color);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  :global(.breadcrumb-item a:hover) {
+    color: var(--sl-color-white);
+    text-decoration: underline;
+  }
+
+  /* SEMBUNYIKAN item terakhir bawaan library (yang berupa nama file) */
+  :global(.breadcrumb-item:last-child) {
+    display: none !important;
+  }
+
+  /* BUAT item baru setelah item terakhir yang terlihat */
+  :global(.breadcrumb-list::after) {
+    content: var(--page-title);
+    color: var(--bc-active-color);
+    font-weight: 600;
+    margin-left: 0px;
+  }
+
+  /* Tambahkan separator sebelum judul halaman manual kita */
+  :global(.breadcrumb-list::before) {
+      /* Opsional: Jika ingin menambahkan sesuatu di awal sekali */
+  }
+</style> -->

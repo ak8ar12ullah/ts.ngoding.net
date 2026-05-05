@@ -1,0 +1,94 @@
+---
+// Import komponen asli Starlight
+import Default from '@astrojs/starlight/components/Footer.astro';
+import type { Props } from '@astrojs/starlight/props';
+
+---
+
+<div class="starlight-footer-wrapper">
+  <Default {...Astro.props}>
+    <slot />
+  </Default>
+  <footer style={{ 
+  marginTop: '5rem', 
+  padding: '4rem 0 2rem 0', 
+  borderTop: '1px solid var(--sl-color-gray-5)',
+  color: 'var(--sl-color-gray-3)'
+}}>
+  <div style={{ 
+    display: 'flex', 
+    flexWrap: 'wrap', 
+    justifyContent: 'space-between', 
+    gap: '2rem',
+    maxWidth: '1100px', /* Sedikit diperlebar agar muat 4 kolom */
+    margin: '0 auto',
+    padding: '0 1rem',
+    textAlign: 'left'
+  }}>
+    
+    {/* Kolom 1: Brand */}
+    <div style={{ flex: '1.2', minWidth: '200px' }}>
+      <h3 style={{ color: 'var(--sl-color-white)', margin: '0 0 1rem 0', fontSize: '1.5rem' }}>
+        <span style={{ color: 'var(--sl-color-accent)' }}>restart.</span>ngoding<span style={{ color: 'var(--sl-color-accent)' }}>.net</span>
+      </h3>
+      <p style={{ fontSize: '0.85rem', lineHeight: '1.6' }}>
+        Tempat saya untuk menyimpan Journal Pembelajaran yang saya pelajari selama mengikuti kegiatan AWS Re/Start.
+      </p>
+
+      <p style={{marginTop:"15px"}}>
+      <a href="https://github.com/ak8ar12ullah" style={{ color: 'inherit', textDecoration: 'none' }}> <span style={{ color: 'var(--sl-color-accent)' }}>My Github</span></a>
+        </p>
+    </div>
+
+    {/* Kolom 2: Navigasi Cepat */}
+    <div style={{ flex: '0.8', minWidth: '150px' }}>
+      <h4 style={{ color: 'var(--sl-color-white)', marginBottom: '1rem', fontSize: '1rem' }}>Materi</h4>
+      <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.85rem', lineHeight: '2.2' }}>
+        <!-- <li><a href="/linux/1-introduction-to-linux/" style={{ color: 'inherit', textDecoration: 'none' }}>Linux</a></li>
+        <li><a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Networking</a></li>
+        <li><a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Security</a></li> -->
+      </ul>
+    </div>
+
+    {/* Kolom 3: Resource */}
+    <div style={{ flex: '0.8', minWidth: '150px' }}>
+      <h4 style={{ color: 'var(--sl-color-white)', marginBottom: '1rem', fontSize: '1rem' }}>Website Saya</h4>
+      <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.85rem', lineHeight: '2.2' }}>
+        <li><a href="https://ngod.ing" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>ngod.ing</a></li>
+        <li><a href="https://ngoding.net" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>ngoding.net</a></li>
+        <li><a href="https://fitur.net" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>fitur.net</a></li>
+        <li><a href="https://ngoding.biz.id" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>ngoding.biz.id</a></li>
+      </ul>
+    </div>
+
+    <!-- {/* Kolom 4: Referensi (Baru) */}
+    <div style={{ flex: '0.8', minWidth: '150px' }}>
+      <h4 style={{ color: 'var(--sl-color-white)', marginBottom: '1rem', fontSize: '1rem' }}>Aset & Kredit</h4>
+      <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.85rem', lineHeight: '1.6' }}>
+        <li style={{ marginBottom: '10px' }}>
+          <a href="https://www.flaticon.com/free-icons/aspnet" title="aspnet icons" target="_blank" style={{ color: 'inherit', textDecoration: 'none', fontStyle: 'italic' }}>
+            Aspnet icons by Alfredo Creates - Flaticon -> Hero Image.
+          </a>
+        </li>
+        {/* Kamu bisa tambah kredit ikon lain di sini nanti */}
+      </ul>
+    </div> -->
+
+  </div>
+
+{/* Garis Bawah & Copyright */}
+
+  <div style={{ 
+    marginTop: '4rem', 
+    paddingTop: '2rem', 
+    borderTop: '1px solid var(--sl-color-gray-6)', 
+    textAlign: 'center',
+    fontSize: '0.8rem'
+  }}>
+    <p>
+      &copy; {new Date().getFullYear()} RESTART.NGODING.NET . Build With Love ❤️ by <b>Faridl Mukhlashin Akbarullah</b>.
+    </p>
+  </div>
+</footer>
+  
+</div>
