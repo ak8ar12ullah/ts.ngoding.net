@@ -24,6 +24,10 @@ export default defineConfig({
       ],
       sidebar: [
         {
+          label: "Introduction",
+          autogenerate: { directory: "Introduction" },
+        },
+        {
           label: "Types",
           autogenerate: { directory: "Types" },
         },

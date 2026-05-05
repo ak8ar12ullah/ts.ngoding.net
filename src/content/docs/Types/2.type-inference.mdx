@@ -1,0 +1,63 @@
+---
+title: Type Inference.
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Type Inference di TypeScript.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="05 Mei 2026" author="akbar" client:load />
+
+## Type Inference
+
+Typescript sama dengan Javascript yang dapat membuat variable milik kita dynamic atau bisa dibilang bisa mendetect value dari variable kita.
+
+contohnya.
+
+```typescript
+let name = "akbar";
+```
+
+sama dengan
+
+```typescript
+let name: string = "akbar";
+```
+
+code diatas sama dengan javascript sama persis.
+Hal ini berguna dari pada kita harus mengetikkan setiap tipe data.
+
+Typescript secara otomatis menganalisa value dari yang kita assign dan menentukan tipe datanya, seperti diatas yang secara otomatis
+mengisikan tipe data string
+
+## Lalu, apa keunggulannya dari pada javascript?
+
+kan ini sama aja deklarasi dengan javascript?
+
+Yaitu Masih memiliki keunggulan dari typescript.
+
+Selama variable masih ada maka akan selalu terdaftar tipe data awalnya.
+
+contohnya jika kita melakukan input dengan string dan mengubahnya menjadi integer akan mengakibatkan error.
+
+contoh syntaxnya.
+
+```typescript
+let name = "akbar";
+
+name = 45;
+// akan mengakibatkan error
+```
+
+<Aside>
+Disarankan ketika kita ingin memasukkan value secara langsung.
+
+Jika kita memberikan data dari return function atau method atau sejenisnya dari hasil lainnya maka disarankan masih mengimplementasikan deklarasi tipe datanya `: tipedata`
+
+</Aside>

@@ -1,0 +1,93 @@
+---
+title: Macam-macam Type di TypeScript
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Penjelasan kenapa ada TypeScript.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="05 Mei 2026" author="akbar" client:load />
+
+## Impelementasi Deklarasi Variable di Typescript
+
+Cara kerjanya sama dengan Javascript.
+
+Mereka menggunakan let, const, maupun var dalam pendeklarasian variablenya.
+
+Contoh di Javascript.
+
+```javascript
+const namaSaya = "Fardil Mukhlashin Akbarullah";
+```
+
+Pebedaannya di Typescript adalah kita memberikan tipe datanya di deklarasi variable menggunakan `:`.
+
+Contoh di TypeScript.
+
+```typescript
+const namaSaya: string = "Faridl Mukhlashin Akbarullah";
+```
+
+## Tipe Data yang dapat diimplementasikan
+
+Deklarasi Variable tersebut dapat menggunakan tipe data lainnya seperti yang dicantumkan di list berikut.
+
+Berikut adalah tipe data primitif, untuk tipe data modern seperti array dan object akan berada di materi selanjutnya.
+
+<Steps>
+
+1. String yang menggunakan tipe data string.
+
+   Contoh Implementasi.
+
+   ```typescript
+   const namaSaya: string = "Faridl Mukhlashin Akbarullah";
+   ```
+
+2. Integer yang menggunakan tipe data number.
+
+   Contoh Implementasi.
+
+   ```typescript
+   const dataDalamKiloMeter: number = 125;
+   ```
+
+3. Boolean yang menggunakan tipe data boolean.
+
+   Contoh Implementasi.
+
+   ```typescript
+   const isOnline: boolean = true;
+   ```
+
+4. null atau tidak memiliki data yang menggunakan tipe data null.
+
+   Contoh Implementasi.
+
+   ```typescript
+   const noValue: null = null;
+   ```
+
+5. undefined yang menggunakan tipe data undefined.
+
+   <Aside>
+
+   Gunakan tipe data null dari pada undefined.
+
+   Hindari undefined. null anda sengaja memberikan nilai kosong. undefined biasanya terjadi karena kesalahan sistem atau code.
+
+   </Aside>
+
+   Contoh Implementasi.
+
+   ```typescript
+   const iniUndefined: undefined = undefined;
+   ```
+
+</Steps>
