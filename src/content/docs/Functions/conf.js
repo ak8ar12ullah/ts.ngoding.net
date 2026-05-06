@@ -1,3 +1,3 @@
 export const confNow = {
-  kategori: "Functions",
+  kategori: "functions",
 };

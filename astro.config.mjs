@@ -8,6 +8,10 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: "https://ts.ngoding.net",
   base: "/",
+  trailingSlash: "always", // Tambahkan ini
+  build: {
+    format: "directory", // Pastikan ini juga ada jika belum
+  },
   integrations: [
     starlight({
       title: "TypeScript Journal",
@@ -29,15 +33,15 @@ export default defineConfig({
         },
         {
           label: "Introduction",
-          autogenerate: { directory: "Introduction" },
+          autogenerate: { directory: "introduction" },
         },
         {
           label: "Types",
-          autogenerate: { directory: "Types" },
+          autogenerate: { directory: "types" },
         },
         {
           label: "Functions",
-          autogenerate: { directory: "Functions" },
+          autogenerate: { directory: "functions" },
         },
       ],
     }),
