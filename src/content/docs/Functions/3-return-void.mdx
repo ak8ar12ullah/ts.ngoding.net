@@ -1,0 +1,38 @@
+---
+title: Return Void di Function.
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Mempelajari return void TypeScript.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="06 Mei 2026" author="akbar" client:load />
+
+## Return Void.
+
+Di Funtion atau Method terutama jika di luar javascript seperti Java. Kalau sebuah function atau method tidak mengembalikan apapun maka tipe data return adalah `void`.
+
+Sesuai dengan namanya `void` memiliki arti kekosongan. jadi return kosong.
+
+Hal ini berguna jika suatu saat kita ingin mengubah suatu fungsi dan tidak sengaja ingin merubahnya menjadi return value. Tentu code kita yang lain akan terjadi error yang mana function tersebut awalnya tidak menggunakan return value.
+
+Contoh penggunaannya bisa dilihat seperti dibawah.
+
+```typescript
+function helloWorld(): void {
+  console.log("Hello World!");
+}
+```
+
+Seperti yang terlihat, Function hello world diatas tidak mereturn apapun tapi memanggil console.log(). Maka dari itu kita menambahkan `: void` sebagai tipe data return.
+
+<Aside>
+  Kalau kita ingin mereturn sesuatu maka kita berikan tipe datanya. jika tidak
+  maka tipe datanya `void`
+</Aside>

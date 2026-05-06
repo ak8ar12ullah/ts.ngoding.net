@@ -1,0 +1,63 @@
+---
+title: Parameter Function.
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Bagaimana jika kita ingin memberikan bentuk parameter function kita menerima function.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="06 Mei 2026" author="akbar" client:load />
+
+## Bagaimana jika kita ingin memberikan bentuk parameter function kita menerima function.
+
+Terkadang di code kita kita ingin memberikan input berbentuk function di tipe data kita.
+
+Contoh penggunaannya di Javascript dapat dilihat di Syntax dibawah.
+
+```javascript
+function helloWorld(fungsiSetelahnya) {
+  console.log("Hello World!");
+
+  // menjalankan fungsi setelahnya.
+  fungsiSetelahnya();
+}
+
+function fungsiSetelahnya(nama) {
+  console.log(`Hallo semua, Saya ${nama}!`);
+}
+
+helloWorld(() => fungsiSetelahnya("akbar"));
+```
+
+Dengan code diatas kita memberikan input fungsi dari `fungsiSetelahnya` pada bagian fungsi `helloWorld`.
+
+## Kalau di TypeScript?
+
+Lalu dari code diatas, kalau kita ingin mengimplementasikannya di typescript maka harus memasukkan tipe data apa di parameter sehingga kita dapat memasukkan fungsi di parameter fungsi lainnya.
+
+Hal tersebut dapat kita lakukan dengan bentuk sebagai berikut. `: (parameter1: tipedata, parameter2: tipedata, seterusnya: tipedata) => tipeDataReturn`
+
+Bentuknya akan menjadi sebagai berikut.
+
+```typescript
+function helloWorld(fungsiSetelahnya: (nama: string) => void): void {
+  console.log("Hello World!");
+
+  // menjalankan fungsi setelahnya.
+  fungsiSetelahnya();
+}
+
+function fungsiSetelahnya(nama: string): void {
+  console.log(`Hallo semua, Saya ${nama}!`);
+}
+
+helloWorld(() => fungsiSetelahnya("akbar"));
+```
+
+Dan bentuk tersebut kita sebut sebagai callback function atau menggunakan arraw function.

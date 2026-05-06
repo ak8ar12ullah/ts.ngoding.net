@@ -1,0 +1,100 @@
+---
+title: Type Interference di Function.
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Mempelajari Type Interference di Function TypeScript.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="06 Mei 2026" author="akbar" client:load />
+
+## Type Interference di Function.
+
+Kita telah mempelajari Type Interference. Type Interference adalah Kita tidak perlu memberikan secara explisit tipe datanya.
+TypeScript sudah secara otomatis memberikan tipe datanya.
+
+Di Function kita dapat melakukan Type Interference di tipe data returnnya. TypeScript bisa secara otomatis memberikan Jenis Tipe Data dari return Functionnya.
+
+Contoh Syntaxnya dapat dilihat dibawah.
+
+```typescript
+function siapaSaya(nama: string, profesi: string) {
+  return `Saya Adalah ${nama}, Saya Seorang ${profesi}`;
+}
+
+const saya = siapaSaya("akbar", "developer");
+```
+
+Seperti yang terlihat di contoh diatas, variable saya secara otomatis menjadi string karena TypeScript menebak secara otomatis yang ingin kita lakukan di function tersebut adalah mengembalikan string.
+
+Kalau kita melakukan hal dibawah ini maka hasilnya akan error.
+
+```typescript
+function siapaSaya(nama: string, profesi: string) {
+  return `Saya Adalah ${nama}, Saya Seorang ${profesi}`;
+}
+
+// Kita memberikan variable 'saya' tipe data number
+
+const saya: number = siapaSaya("akbar", "developer");
+```
+
+Dengan code diatas akan mengahasilkan error, karena typescript secara otomatis memnberikan return function tersebut tipe data string dan kita memasukkannya ke dalam variable dengan tipe data number.
+
+variable dengan tipe data number tidak bisa dimasukkan string karena hal tersebut maka code diatas menyebabkan error.
+
+## Perlu Diketahui.
+
+Kadan developer tidak memberikan tipe data return dikarenakn type interference dengan maksud lebih cepat dan sudah tahu function akan mereturn apa lebih tepatnya satu tipe data dan belum kompleks.
+
+Kalau sudah kompleks, lebih baik secara eksplisit memberikan tipedatanya. Hal ini dikarenakan lebih mudah dalam maintenance maupun developmentnya.
+
+Kalau kita mau merubah function atau method yang sudah dipakai di berbagai tempat, maka kita bisa melihat bentuk returnnya sehingga di tempat lain tidak akan error karena mereka hanya peduli bentuk return dari function atau method.
+
+contoh.
+
+```typescript
+// function di suatu tempat
+function boss(nama: string, level: number) {
+  return {
+    bosName: nama,
+    level: level,
+  };
+}
+
+const goblin = boss("goblin", 99);
+
+// code disuatu tempat
+goblin.level = goblin.level + 1;
+console.log(
+  `Bos bernama ${goblin.bosName}, sekarang levelnya meningkat menjadi ${goblin.level}`,
+);
+```
+
+Kalau kita ubah kodenya dari level dengan tipe data number menjadi string.
+
+```typescript
+// function di suatu tempat. Kit ubah level dari number menjadi string.
+function boss(nama: string, level: string) {
+  return {
+    bosName: nama,
+    level: level,
+  };
+}
+
+const goblin = boss("goblin", "sulit");
+
+// code disuatu tempat
+goblin.level = goblin.level + 1;
+console.log(
+  `Bos bernama ${goblin.bosName}, sekarang levelnya meningkat menjadi ${goblin.level}`,
+);
+```
+
+Code setelahnya menjadi tidak masuk akal, karena dari awalnya level 99 menjadi 100. kalau kita ganti menjadi string dan diganti menjadi sulit akan merubah kode ditempat lain yang menggunakan function. seperti diatas hasil dari level akan menjadi `sulit1` karena berbentuk string atau bisa menjadi ERROR.

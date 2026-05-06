@@ -1,8 +1,8 @@
 ---
-title: Introduction To TypesScript.
+title: Function Type Syntax.
 # banner:
 #   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
-description: Penjelasan kenapa ada TypeScript.
+description: Syntax di Function Typescript
 ---
 
 import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
@@ -13,3 +13,54 @@ import { confNow } from "./conf.js";
 <CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
 
 <Penulis waktu="06 Mei 2026" author="akbar" client:load />
+
+## Pemberian Tipe data
+
+Sama seperti pembuatan variable yang memakai data dengan `: tipedata`.
+Seperti.
+
+```typescript
+const myName: string = "Faridl Akbar";
+```
+
+Pengggunaan di function juga sama. Hal penting di Function yang diharuskan menggunakan tipe data adalah bagian parameter dan return.
+
+Untuk bagian parameternya kita tinggal memberikan `: tipedata` di setiap parameter yang ada di function.
+
+Contohnya adalha sebagai berikut.
+
+```typescript
+// parameternya adlaah nama dan profesi.
+function hello(nama: string, profesi: string): void {
+  console.log(`Halo Semuanya!, Saya adalah ${nama}. Saya adalah ${profesi}`);
+}
+
+hello("akbar", "developer");
+```
+
+Contoh diatas adalah pemberian tipe data pada function pada bagian parameternya.
+
+Kita bisa memasukkan tipe data lainnya seperti number, boolean, dan sebagainya.
+
+Tapi di function ada juga yang berbentuk dapat mengembalikan nilai. Pengembalian nilai ini ditandai dengan return di function nya.
+
+Return juga tidak luput dari penambahan TipeData yang direturn.
+
+Contohnya, ketika kita membuat function yang mereturn nilai hasil perkalian dua angka. Return ini dapat kita buat untuk dimasukkan ke dalam variable ataupun ke dalam function/method yang lainnya seperti console.log().
+
+Untuk memberikan tipe data yang direturn maka setelah deklarasi penamaan function dan parameternya kita tambahkan tipe datanya sama seperti `: tipedata`.
+
+Contoh Penggunaannya adalah seperti dibawah.
+
+```typescript
+// Seperti yang terlihat di samping nama fungsi dan parameter kita menambahkan
+// : number setelahnya. itulah tipe data yang direturn oleh functionnya.
+
+function perkalianDuaAngka(a: number, b: number): number {
+  return a * b;
+}
+
+const hasilPerkalian = perkalianDuaAngka(2 * 3);
+
+console.log(hasilPerkalian);
+```
