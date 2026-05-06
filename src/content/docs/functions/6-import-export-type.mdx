@@ -1,0 +1,15 @@
+---
+title: Import Export Types.
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Bagaimana Melakukan Import Export Types.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="06 Mei 2026" author="akbar" client:load />

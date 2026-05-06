@@ -23,3 +23,47 @@ Keyword ini dibuat guna untuk memberikan kemudahan dalam membaca code dikarenaka
 contohnya adalah jika kita memberikan input parameter 2 fungsi ke fungsi utama.
 
 Berikut contoh syntaxnya.
+
+```typescript
+function helloWorld(fungsiSatu: (parameter1: string, parameter2: number) => string | number | null, fungsiDua: (parameter1: string, parameter2: number) => string | number | null): string | number | null{
+  ....
+}
+```
+
+Kita bisa melihat bentuk diatas, sangat-sangat panjang padahal cuma deklarasi tipe data. Padahal kalau di javascript bentuknya seperti ini.
+
+```javascript
+function helloWorld(fungsiSatu, fungsiDua){
+  ....
+}
+```
+
+Dikarenan hal tersebut sehingga bentuknya susah untuk dibaca. maka dari itu kita butuh bentuk tipe datanya kita pisahkan.
+
+Maka dibuatlah keyword type.
+
+## Penggunaan Keyword type.
+
+Kita menggunakan keyword type sama seperti kita membuat variable di javascript tapi dengan keyword type maka ini dikhususkan untuk tipe data nya saja.
+
+Syntaxnya dapat dilihat seperti dibawah.
+
+```typescript
+type FungsiKu = (parameter1: tipedata, parameter2: tipedata) > tipedata;
+```
+
+penggunaannya type dapat kita lakukan dengan cara dibawah sesuai dengan code paling atas tadi.
+
+```typescript
+type TypeKu = string | number | null
+type FungsiKu = (
+  parameter1: TypeKu,
+  parameter2: TypeKu,
+) => TypeKu;
+
+function helloWorld(fungsiSatu: FungsiKu, fungsiDua: FungsiKu): TypeKu{
+  ....
+}
+```
+
+Setidaknya code diatas lebih bisa dibaca dari pada sebelumnya.
