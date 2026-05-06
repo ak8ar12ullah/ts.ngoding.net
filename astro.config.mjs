@@ -29,7 +29,7 @@ export default defineConfig({
       sidebar: [
         {
           label: "Hello",
-          slug: "index",
+          link: "/",
         },
         {
           label: "Introduction",
