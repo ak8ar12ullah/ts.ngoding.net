@@ -35,6 +35,10 @@ export default defineConfig({
           label: "Types",
           autogenerate: { directory: "Types" },
         },
+        {
+          label: "Functions",
+          autogenerate: { directory: "Functions" },
+        },
       ],
     }),
     react(),

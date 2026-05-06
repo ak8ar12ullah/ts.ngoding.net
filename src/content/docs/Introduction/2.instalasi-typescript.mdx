@@ -1,0 +1,48 @@
+---
+title: Instalasi Typescript ke Komputer.
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Penjelasan kenapa ada TypeScript.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="06 Mei 2026" author="akbar" client:load />
+
+## Typescript harus di compile ke Javascript
+
+Ketika kita menggunakan file name TS maka file tersebut tidak bisa digunakan oleh
+sistem kita. karena TypeScript diciptakan bukan untuk menggantikan Javascript tapi menambahkan Fitur ke Javascript.
+
+Dikarenakan hal tersebut, ketika kita ingin mengguankan TypeScript maka kita harus melakukan build untuk mengubahnya menjadi script javascript.
+
+## Instalasi Typescript
+
+Untuk melakukan build tersebut maka kita harus menginstal TypeScript ke Computer kita.
+
+Instalasi ini guna digunakan untuk proses build kita.
+
+Pertama-tama kita harus sudah menginstall NodeJS ke Computer kita.
+
+Setelah NodeJS terinstal, Maka di NodeJS tersebut sudah ada NPM maupun PNPM.
+
+maka kita harus menginstallnya menggunakan perintah di bawah pada CMD di windows ataupun Terminal di Linux pada tempat project berada.
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+<Tabs>
+  <TabItem label="NPM">``` npm install typescript --save-dev ```</TabItem>
+  <TabItem label="PNPM">``` pnpm add typescript --save-dev ```</TabItem>
+</Tabs>
+
+atau kalau kita ingin typescript dapat digunaakn dimana saja secara global maka kita tinggal menjalankan script dibawah.
+
+<Tabs>
+  <TabItem label="NPM">``` npm install typescript -g ```</TabItem>
+  <TabItem label="PNPM">``` pnpm add typescript -g ```</TabItem>
+</Tabs>
