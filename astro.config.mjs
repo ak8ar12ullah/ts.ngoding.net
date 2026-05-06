@@ -43,6 +43,10 @@ export default defineConfig({
           label: "Functions",
           autogenerate: { directory: "fungsi" },
         },
+        {
+          label: "Unions",
+          autogenerate: { directory: "unions" },
+        },
       ],
     }),
     react(),

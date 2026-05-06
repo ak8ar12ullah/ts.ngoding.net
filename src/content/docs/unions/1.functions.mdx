@@ -1,0 +1,46 @@
+---
+title: Penggunaan Union.
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Bagaimana mengunakan unions di TypeScript.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="06 Mei 2026" author="akbar" client:load />
+
+## Narrowing Tipe Data
+
+Mungkin sebelumnya kita sudah melihat penggunaannya di contoh code saya sebelumnya.
+
+Contoh Syntaxnya ada dibawah.
+
+```typescript
+type MyDataType = string | number | null;
+```
+
+Seperti yang terlihat diatas, kita bisa lihat code tersebut ada symbol `|`.
+
+Di dunia pemrograman symbol `|` dapat diartikan sebagai 'or' kalau dalam bahasa indonesianya adalah 'atau'.
+
+Penggunaannya adalah jika kita membuat variable dan kita tidak tahu apa yang akan dimasukkan ke dalam variable tersebut antara 2 atau lebih tipe data maka kita bisa menggunakan unions atau `|`.
+
+Hal ini juga bisa diberikan ke dalam function. Contohnya adalah sebagai berikut.
+
+```typescript
+type MyDataType = String | Number;
+type TypeReturn = String | null;
+
+function helloWorld(a: MyDataType, b: MyDataType): TypeReturn{
+  ...
+}
+```
+
+Dengan cara ini kita bisa narrowing tipe data, tapi jika kita memberikan banyak jenis tipe data sama saja kita meninggalkan keunggulan utama dari typescript sama seperti tipe data `any`.
+
+Karena Hal Tersebut Gunakan Secara Bijak.
