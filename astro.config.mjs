@@ -41,7 +41,7 @@ export default defineConfig({
         },
         {
           label: "Functions",
-          autogenerate: { directory: "func" },
+          autogenerate: { directory: "fungsi" },
         },
       ],
     }),
