@@ -4,3 +4,57 @@ title: Import Export Types.
 #   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
 description: Bagaimana Melakukan Import Export Types.
 ---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="06 Mei 2026" author="akbar" client:load />
+
+## Exporting Type.
+
+Setelah kita membuat Types dengan keyword type sekarang kita bisa membuat
+folder khusus dan file khusus yang digunakan untuk menyimpan type yang ada supaya mudah di maintenance.
+
+cara untuk melakukan export dapat kita lakukan sama dengan export lainnya, berikut adalah contoh export type.
+
+```typescript
+// Dibawah adalah bentuk export variable biasa
+export const dataku: string = "Hello World!";
+
+// sama saja dengan type yaitu dengan menggunakan export biasa
+
+export type MyDataType = string | number | volume;
+export type MyDataTypeKeDua = (parameter1: string) => string;
+```
+
+## Importing Type.
+
+Untuk melakukan import sama saja dengan javascript tapi ada penambahan.
+
+Untuk melakukan Export dengan cara biasa bisa kita lakukan dengan syntax berikut.
+
+```typescript
+import { MyDataType, MyDataTypeKeDua } from "./type.js";
+```
+
+Cara diatas bisa dilakukan tapi hal ini mengakibatkan kita mengimport file type.js tersebut padahal kita hanya import type.
+
+Maksudnya disini, type tidak akan di build ke javascript karena type tersebut khusus ada di typescript.
+
+Jadi kalau kita mengimport dengan cara biasa, file type.js akan terbundle ke juga padahal isinya tidak akan dibuild.
+
+Karena hal tersebut maka kita tinggal menggunakan syntax dibawah.
+
+```typescript
+import type { MyDataType, MyDataTypeKeDua } from "./type.js";
+// atau
+import { type MyDataType, type MyDataTypeKeDua } from "./type.js";
+```
+
+Dengan cara ini kita hanya mengimportnya di typescript dan tidak akan terbundle di javascript nantinya. Hal ini akan menghemat ukuran bundle dan mempercepat aplikasi.
+
+Dengan type, nantinya di javascript kita type.js tidak akan terimport. Hal ini hanya untuk mengimport di development nya saja yaitu di TypeScript nya.
