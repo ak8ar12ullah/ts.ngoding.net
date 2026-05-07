@@ -34,7 +34,7 @@ console.log(dataString.toUpperCase());
 // Hasil diatas akan merubah dataString menjadi "HELLO EVERYBODY, MY NAME IS AKBAR"
 ```
 
-## Ketika menggunakan unions.
+## Ketika menggunakan unions. (Narrowing Types)
 
 tapi jika menggunakan unions, penggunaan `ctrl + space` akan membingungkan typescript dan tidak akan memperlihatkan method apapun dari tipe datanya.
 
@@ -55,3 +55,5 @@ function myFuntion(id: string | number): string {
   }
 }
 ```
+
+Hal tersebut dinamakan Narrowing Types, yang mana dari beberapa jenis tipe data akan menjadi satu atau beberapa dengan `if`.
