@@ -1,0 +1,79 @@
+---
+title: Optional Parameters.
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Bagaimana Optional Parameters di TypeScript.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="07 Mei 2026" author="akbar" client:load />
+
+## Optional Parameters di Javascript
+
+Di Javascript kita dapat melakukan optional parameter di function. Hal tersebut dapat kita lakukan dengan symbol `?`.
+
+Berikut adalah contoh penggunaannya di dalam code.
+
+```typescript
+function myFunction(input1?) {
+  // Dengan kita menggunakan `?` seperti diatas, maka ketika kita menggunakannya di code lain,
+  // kita tidak diharuskan untuk menggunakan parameter disana. karena `?` menjadikannya optional.
+  if (input1) {
+    return;
+  }
+  return;
+}
+
+// Contohnya seperti dibawah.
+myFunciton(); // boleh tanpa parameter
+myFunction("Hello"); // juga boleh
+```
+
+## Penggunaannya di Typescript
+
+Penggunaannya di Typescript juga sama. tapi ada peraturan khusus yang mana jika tidak kita
+ikuti maka code kita tidak akan terbuild menjadi js.
+
+Peraturannya adalah optional parameter harus berada di bagian akhir dari parameter yang lain.
+
+Contohnya di typescript seperti dibawah.
+
+```typescript
+function myFunction(data1: string, data2: string, data3?: string): void {
+  // seperti yang kita lihat diatas, data3 berada di paling akhir yang
+  // mana data3 bersifat optional yang menggunakan `?`.
+}
+```
+
+Jika kita melihat tipe data dari parameter optional code diatas. Dapat kita lihat bahwa data3 berbentuk string.
+
+Tapi sebenarnya parameter tersebut berbentuk Union. yang mana satu tipe data yang dimasukkan yang lain adalah undefined.
+
+ketika kita tidak memasukkan data apapun disana secara otomatis parameter tersebut menjadi bertipe data undefined juga.
+
+## Default Parameters.
+
+Default Parameter di Typescript sama dengan di Javascript.
+
+Kalau kita menggunakan default parameter maka kita tidak usah membuatnya menjadi optional.
+
+Dikarenakan jika kita tidak memberikan input apapun di parameter yang terdapat default parameters, maka secara otomatis default value yang akan terisi.
+
+Default parameters menggunakan `= value` di parameternya ketika function dibuat.
+
+Penggunaannya dapat dilihat di code dibawah.
+
+```typescript
+function menggunakanDefault(isi1: string, isi2: string = "Hello World!") {
+  // seperti yang terlihat, parameter isi2 memiliki default Hello World!. yang mana
+  // jika isi2 tidak diisi kemudian maka secara otomatis isinya hello world.
+}
+
+menggunakanDefault("selamat page"); // parameter kedua tidak diisi, maka secara otomatis parameter tersebut berisi "Hello World!"
+```
