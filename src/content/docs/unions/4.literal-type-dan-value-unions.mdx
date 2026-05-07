@@ -1,0 +1,75 @@
+---
+title: Literal Type dan Value Unions.
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Bagaimana Literal Type dan penggunaannya di TypeScript.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="07 Mei 2026" author="akbar" client:load />
+
+## Apa itu Literal Type.
+
+Kalau biasanya kita memberikan tipe data dalam bentuk string, number, float, dan lain sebagainya.
+Tapi dengan Literal Type kita dapat membuatnya menjadi pilihan yang dijadikan tipe data.
+
+Literal Type adalah suatu value yang dijadikan suatu tipe data.
+
+Dalam hal ini adalah value tersebut bisa berupa tipe data string, number, boolean dan lain sebagainya.
+
+Contohnya adalah seperti syntax berikut.
+
+```typescript
+let arahMataAngin: "timur laut";
+```
+
+Dalam variable diatas nilainya hanya boleh 'timur laut' atau undefined. Tidak boleh yang lain.
+
+Kalau kita memberikan value seperti dibawah akan menyebabkan error di TypeScript.
+
+```typescript
+const arahMataAngin: "timur laut" = "tenggara";
+// code diatas akan menyebabkan error.
+```
+
+## Value Unions.
+
+Jika kita menggunakan unions maka tampilannya akan menjadikan dia menjadi suatu pilihan.
+
+Contohnya.
+
+```typescript
+let arah: "atas" | "bawah" | "kanan" | "kiri";
+// maka variable arah akan menjadi hanya boleh berisi atas bawah kanan dan kiri.
+
+arah = "atas";
+// kode diatas tidak akan menyebabkan error.
+```
+
+## Bentuk dalam Function Value Unions.
+
+Hal tersebut dapat kita manfaatkan pada function. sehingga parameter hanya boleh menerima beberapa input.
+
+Contohnya ada dalam syntax berikut.
+
+```typescript
+function characterBerjalan(arah: "atas" | "bawah" | "kanan" | "kiri"): void{
+  if(arah === "atas"){
+    ...
+  } else if(arah === "bawah"){
+    ...
+  } else if(arah === "kanan"){
+    ...
+  } else if(arah === "kiri"){
+    ...
+  }
+}
+```
+
+Code diatas adalah bagaimana pemanfaatan **Literal Type** pada Function.
