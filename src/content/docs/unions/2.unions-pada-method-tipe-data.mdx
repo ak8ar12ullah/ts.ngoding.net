@@ -1,0 +1,57 @@
+---
+title: Union pada Method Tipe Data.
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Bagaimana method di setiap data ketika menggunakan Union.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="07 Mei 2026" author="akbar" client:load />
+
+## Ketika menggunakan tipe data biasa.
+
+Ketika kita menggunakan method biasa maka kita dapat menggunakan `ctrl + spasi` untuk melihat method apa saja yang ada di
+variable dengan tipe data tertentu.
+
+Contohnya di tipe data `string` terdapat method `.toLowerCase()` untuk merubah string ke huruf kecil semua atau `.toUpperCase()`
+untuk merubah string ke huruf besar semua.
+
+Contohnya ada di syntax berikut.
+
+```typescript
+const dataString: string = `Hello Everybody, My Name is Akbar`;
+// Menggunakan toLowerCase
+console.log(dataString.toLowerCase());
+// Hasil diatas akan merubah dataString menjadi "hello everybody. my name is akbar"
+
+console.log(dataString.toUpperCase());
+// Hasil diatas akan merubah dataString menjadi "HELLO EVERYBODY, MY NAME IS AKBAR"
+```
+
+## Ketika menggunakan unions.
+
+tapi jika menggunakan unions, penggunaan `ctrl + space` akan membingungkan typescript dan tidak akan memperlihatkan method apapun dari tipe datanya.
+
+tapi kita dapat merubahnya sehingga muncul menggunakan `if(typeof variable == 'tipedata')` penggunaannya dapat dilihat seperti syntax dibawah.
+
+```typescript
+function myFuntion(id: string | number): string {
+  // Kalau kita membarikan id disini dan memberikan titik, dilanjutkan
+  // `ctrl + space` maka akan terlihat method yang bisa digunakan.
+  // tapi method khusus untuk string / number tidak ada karena
+  // input nya ada dua maka typescript akan bingung
+  // tapi kalau kita memakai cara dibawah
+  if (typeof id === "string") {
+    // di sini kita dapat melihat list untuk string dengan `ctrl+space`
+    console.log(id.toLowerCase());
+    // menggunakan toLowerCase ataupun split.
+    const parseId = id.split("-")[1];
+  }
+}
+```
