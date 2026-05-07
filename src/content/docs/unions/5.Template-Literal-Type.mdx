@@ -1,0 +1,52 @@
+---
+title: Template Literal Type
+# banner:
+#   content: ✍️ Ditulis oleh <strong>Farid Mukhlashin</strong> untuk Journal AWS re/Start.
+description: Bagaimana Literal Type dan penggunaannya di TypeScript.
+---
+
+import { Aside, Badge, Steps, Code } from "@astrojs/starlight/components";
+import Penulis from "../../../components/PenulisWritter.jsx";
+import CustomBreadcrumbs from "../../../components/CustomBreadcrumps.astro";
+import { confNow } from "./conf.js";
+
+<CustomBreadcrumbs kategori={confNow.kategori} title={frontmatter.title} />
+
+<Penulis waktu="07 Mei 2026" author="akbar" client:load />
+
+## Super Set Literal.
+
+Apa itu super set literal?
+
+SuperSet Literal adalah penggunaan Unions untuk menambahkan tipe data dari type yang telah dibuat.
+
+Contohnya kita memiliki Type yang telah kita buat.
+
+```typescript
+type ClassGame = "Penyihir" | "Petarung" | "Prajurit";
+```
+
+Dari tipe data ClassGame yang telah ada tersebut telah disimpan dan dipakai oleh banyak code.
+
+Dan kita ingin membuat tipe data lainnya yang mana ClassGame juga ada. dari pada membuat baru kita bikin saja seperti syntax dibawah.
+
+```typescript
+// type di tempat lain yang telah diexport
+export type ClassGame = "Penyihir" | "Petarung" | "Prajurit";
+
+// code ditempat lainnya yang mengimport ClassGame.
+export type RaceGame = "Manusia" | "Penyihir" | "Elf" | ClassGame;
+// ClassGame yang terdapat di type akhir tersebut diambil di type ClassGame yang tadi telah ada.
+```
+
+## Template Literal Types.
+
+Hampir sama dengan SuperSet Literal. Sedangkan kalau Template Literal Types cara kerjanya hampir sama dengan
+Template Literal String.
+
+Kalau Template Literal String, Bentuknya seperti Syntax dibawah.
+
+```typescript
+const hello = `Hello Guys!, Saya ${name}`;
+```
+
